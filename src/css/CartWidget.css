@@ -1,0 +1,18 @@
+.img-cart{
+    width: 25px;
+}
+
+.cart-widget{
+/* Visible todo el tiempo */
+    position: fixed;
+    right: 10px; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 50%;
+    background-color: white;
+    width: 65px;
+    height: 65px;
+}

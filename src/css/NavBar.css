@@ -1,0 +1,65 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+}
+
+.img-logo{
+    width: 120px;
+    border: solid 3px;
+    border-color: white;
+    border-radius: 50%;
+    z-index: 99;
+}
+
+.nav-barra{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: 100px;
+    width: 100%;
+    background-color: #C93F8F;
+    margin-left: -50px;
+}
+
+.texto-marca{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 60px;
+    color:white;
+}
+
+.texto-marca-1 {
+    font-size: 47px;
+    font-style: normal;
+    font-family: 'Advent Pro', sans-serif;
+}
+
+.texto-marca-2 {
+    font-size: 25px;
+    font-style: normal;
+    font-family: 'Euphoria Script', cursive;
+}
+
+.menu{
+    justify-content: right;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 70px;
+}
+
+.button-nav{
+    padding: 5px;
+    margin-right: 10px;
+    width: 120px;
+    border-radius: 10px;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    box-shadow: 5px 5px 15px black;
+}
