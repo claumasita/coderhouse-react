@@ -1,0 +1,103 @@
+@import url("./General.css");
+
+.cart{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.title{
+    text-align:  center;
+    text-transform: capitalize;
+    font-family: 'Advent Pro', sans-serif;
+}
+
+.btn-delete-item{
+    border-radius:50%;
+    background-color: transparent;
+    width:  45px;
+    height: 45px;
+    border: none
+}
+
+.btn-delete-item:hover{
+    box-shadow: 0px 0px 10px 1px rgba(212,44,44,0.66);
+}
+
+.table-cart {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 1.5rem;
+}
+
+
+.table-cart th{
+    background-color: lightgray;
+    padding: 10px;
+    min-width: 50px;
+}
+
+.table-cart td{
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.checkout{
+    padding-top: 30px;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 1.5rem;
+}
+
+.checkout button{
+    margin: 20px;
+    width: 150px;
+    min-height: 40px;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    color: var(--font-color-banner);
+    border: none;
+    box-shadow: 5px 5px 10px black;
+}
+
+.btn-qty-cart{
+    width: 36px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: var(--font-color-banner);
+    border: none;
+}
+
+.order-id{
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+input{
+    border: none;
+    border-bottom: solid 1px black;
+    height: 40px;
+    width: 100%;
+}
+
+.input-confirm-checkout{
+    margin-top: 25px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    color: var(--font-color-banner);
+    border: none;
+    box-shadow: 5px 5px 10px black;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 1.5rem;
+}
+
+.error-input{
+    color: red;
+    font-style: italic;
+}

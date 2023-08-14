@@ -1,3 +1,5 @@
+@import url("./General.css");
+
 .nav-bar{
     display: flex;
     flex-direction: row;
@@ -8,7 +10,6 @@
     border: solid 3px;
     border-color: white;
     border-radius: 50%;
-    /* z-index: 99; */
 }
 
 .nav-link-logo{
@@ -21,7 +22,7 @@
     margin-top: 10px;
     height: 100px;
     width: 100%;
-    background-color: #C93F8F;
+    background-color: var(--main-color);
     margin-left: -50px;
     border-radius: 10px;
 }
@@ -32,7 +33,7 @@
     flex-wrap: wrap;
     text-align: center;
     margin-left: 60px;
-    color:white;
+    color: var(--font-color-banner);
 }
 
 .texto-marca-1 {

@@ -1,8 +1,10 @@
+import '../../css/NavBar.css';
+
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import Logo from "./assets/Logo.png";
-import '../../css/NavBar.css';
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ButtonNav = ( {text} ) =>{
   return (
@@ -14,19 +16,13 @@ const ButtonNav = ( {text} ) =>{
 
 const NavBar = () =>{
 
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-      fetch("https://fakestoreapi.com/products/categories", { method: "GET"})
-      .then(response => response.json())
-      .then(result => {
-          // Orden por Categoría (DESCENDING)
-          result.sort((a, b) =>{
-            if ( a < b ){return 1;}
-            if ( a > b ){return -1;}
-            return 0;
-        });
-          setCategories(result);
+      const db = getFirestore();
+      const itemCollection = collection(db, "categories");
+      getDocs(itemCollection).then((snapshot) => {
+        setCategories(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
       });
 }, []);
 
@@ -42,18 +38,18 @@ const NavBar = () =>{
       <div className="nav-barra">
         <div className="texto-marca">
           <div className="texto-marca-1">Caro Martinez</div>
-          <div className="texto-marca-2">clothing & technology store</div>
+          <div className="texto-marca-2">clothing & jewelery</div>
         </div>
         <div className="menu">
 
           {categories?.map((category, index)=>(
-            <NavLink to={`/category/${category}`} key={index}>
-            <ButtonNav text = {`${category}`} />
-          </NavLink>
+            <NavLink to={`/category/${category.id}`} key={index}>
+              <ButtonNav text = {`${category.name}`} />
+            </NavLink>
           ))}
 
         </div>
-        <CartWidget items={'3'}/> 
+        <CartWidget/> 
       </div>
     </nav>
   )

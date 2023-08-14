@@ -3,44 +3,75 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import '../../css/ItemListContainer.css';
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 const ItemListContainer = ( {greeting} ) => {
-    const ENDPOINT = "https://fakestoreapi.com/products";
 
-    const { cate_name } = useParams();
+    const { cate_id } = useParams();
     const [products, setProducts] = useState();
-    const [url, setUrl] = useState("");
+    const [category, setCategory] = useState();
 
     useEffect(() => {
-        if (cate_name !== undefined){
-            setUrl( ENDPOINT + "/category/" + cate_name );
+        if (cate_id === undefined){
+            mostrarTodos();
         }else{
-            setUrl( ENDPOINT );
+            setProducts();
+            mostrarCategoria(cate_id);
         }
-    },[cate_name]);
+    // eslint-disable-next-line
+    },[cate_id]);
 
-    useEffect(() => {
-        if (url !== ""){
-            fetch(url, { method: "GET"})
-            .then(response => response.json())
-            .then(result => {
+    const mostrarTodos = () => {
+        const db = getFirestore();
+        const itemCollection = collection(db, "products");
+        getDocs(itemCollection).then((snapshot) => {
+            setCategory(greeting);
+            setProducts(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
+        });
+    }
 
-                // Orden por Categoría (DESCENDING)
-                result.sort((a, b) =>{
-                    if (a.category < b.category){return 1;}
-                    if (a.category > b.category){return -1;}
-                    return 0;
-                });
-                setProducts(result);
+    const mostrarCategoria = (idCate) => {
+        const db = getFirestore();
+        obtenerCategoria(db, idCate);
+        filtrarPorCategoria(db, idCate);
+    }
 
-            });
-        }
-    }, [url]);
+    const obtenerCategoria = (db, idCate) =>{
+        const ref = doc(db,"categories",idCate);
+        getDoc(ref).then((snapshot)=>{
+            if(snapshot.exists()){
+                const data = snapshot.data();
+                setCategory(data.name);
+            }
+        })
+    }
+
+    const filtrarPorCategoria = (db, idCate) =>{
+
+        const q =   query(collection(db, "products"),
+                    where("idCate", "==", idCate));
+
+        getDocs(q).then((snapshot)=>{
+            if (snapshot.size !==0 ){
+                setProducts(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
+            }
+        });
+    }
+
+    if (!products ){
+        return(
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div className="title">
+                    <h1>Loading...</h1>
+                </div>
+            </div>
+        )
+    }
 
     return(
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="title">
-                <h1>{greeting}{cate_name}</h1>
+                <h1>{category}</h1>
             </div>
             <div className="products"> 
                 
