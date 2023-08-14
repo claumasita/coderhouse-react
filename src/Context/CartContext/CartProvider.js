@@ -2,7 +2,7 @@ import  CartContext  from "./cartContext";
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
-import { addDoc, collection, documentId, getFirestore, query, writeBatch, getDocs, where } from "firebase/firestore";
+import { addDoc, collection, documentId, getFirestore, query, writeBatch, getDocs, where, Timestamp } from "firebase/firestore";
 
 function CartProvider({ defaultValue = [], children }) {
     const [ products, setProducts ] = useState(defaultValue);
@@ -173,7 +173,8 @@ function CartProvider({ defaultValue = [], children }) {
                     qty: product.quantity,
                     subtotal: product.total
                 })),
-                total: total
+                total: total,
+                date: Timestamp.fromDate(new Date())
             }
         
             // Obtiene referencias y documentos para posterior validación de Stock
