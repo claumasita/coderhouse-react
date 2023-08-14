@@ -12,6 +12,9 @@
 - firebase: WebService de Google que proporciona un Backend en la nube, con una fuente de datos NoSQL.
 - react-bootstrap: Biblioteca de componentes de interfaz de usuario (UI) que combina la popularidad y flexibilidad de Bootstrap con la potencia y eficiencia de React.
 - react-hook-form: Para generar formularios de manera no controlada, independizando todo cambio que pueda producirse en cada uno de los elementos del formulario, evitando con ello renders innecesarios, haciendo uso de hooks.
+- toastify-js: Para generar de forma sencilla los toast e informar al usuario con sutiles mensajes.
+- SweetAlert: Plugin con el cual podremos dar un aspecto profesional a los mensajes que lancemos a los usuarios acorde a las tendencias actuales.
+- Toda la información de productos y categorías se tomó del sitio [FakeStore API](http://https://fakestoreapi.com/ "FakeStore API") incluyendo las descripciones e imágenes de los artículos.
 
 ## Resumen del proyecto
 ### PreEntrega n°1:
