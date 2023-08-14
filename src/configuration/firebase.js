@@ -5,6 +5,7 @@ import 'firebase/firestore';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// ( PARA FACILITAR LA CORRECCIÓN, NO SE AGREGÓ AL .GITIGNORE EL .ENV )
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "coder-curso-react.firebaseapp.com",

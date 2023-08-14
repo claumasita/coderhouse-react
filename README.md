@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# 👗👕 💍 Caro Martinez
+### Clothing & Jewelery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+------------
 
-## Available Scripts
+## Entrega final para el Curso de React en Coderhouse
 
-In the project directory, you can run:
+### Se realizó un E-Commerce utilizando **React.js**
 
-### `npm start`
+### Liberías utilizadas:
+- react-router: Librería para el ruteo de la SPA.
+- firebase: WebService de Google que proporciona un Backend en la nube, con una fuente de datos NoSQL.
+- react-bootstrap: Biblioteca de componentes de interfaz de usuario (UI) que combina la popularidad y flexibilidad de Bootstrap con la potencia y eficiencia de React.
+- react-hook-form: Para generar formularios de manera no controlada, independizando todo cambio que pueda producirse en cada uno de los elementos del formulario, evitando con ello renders innecesarios, haciendo uso de hooks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Resumen del proyecto
+### PreEntrega n°1:
+##### Crea una carpeta dentro de src llamada components que contenga la implementación del componente NavBar dentro del archivo NavBar.js. Su funcionalidad es la de renderizar una barra de menú (Navbar).
+- Crea un componente CartWidget con un ícono y una notificación mostrando un número hardcodeado (fijo).
+- Ubica este componente (CartWidget) dentrode Navbar.
+- Agrega algunos estilos con bootstrap/materialize u otro.
+- Crea un componente contenedor ItemListContainer.js con una prop greeting, y muestra el mensaje dentro del contenedor con el styling integrado.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### PreEntrega n°2:
+##### Configura en App.js el routing usando un BrowserRouter de tu aplicación con react-router-dom.
 
-### `npm test`
+#### Componentes:
+- Navbar con Cart
+- Catálogo
+- Detalle de producto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Links y Rutas a configurar:
+- Clickear en el brand debe navegar a ‘/’
+- Clickear un Item.js debe navegar a /item/:id****
+- Clickear en una categoría del navbar debe navegar a /category/:categoryId
 
-### `npm run build`
+## Entrega Final:
+#### Se debe generar una versión funcional del e-commerce que permita la navegabilidad por el sitio, agregar productos al Cart y poder realizar un Checkout para confirmar la operación.
+#### Este Checkout se realizará luego de solicitar al comprador los siguientes datos:
+- Nombre Completo
+- Teléfono
+- E-mail
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Todos estos datos serán mandatorios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Una vez confirmada la compra, se visualizará por pantalla el código de órden generado para la operación.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Aspectos a tener en cuenta:
+Los datos de los artículos y categorías, se obtienen de las respectivas colecciones **products** y **categories**, de la base de datos de Firebase.
+A su vez, las ordenes confirmadas se almacenarán en la colección **orders**.
+Previo a confirmar la órden, se realiza una verificación de Stock, y de haber alguna incongruencia, **no se genera la compra y se informa por pantalla al usuario sobre este problema**.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Oportunidades de mejora para una próxima versión:
+Intentar agregar la opción de talles (con sus respectivos Stocks) para cada uno de los productos.
+Emprolijar e intentar simplificar el código, aplicando Sugar Sintax donde sea posible.
+En caso de que hubiera error por falta de Stock, mostrar un listado de los productos que  tienen este inconveniente.
+Ocultar el archivo **.env** 
+>Para facilitar la corrección, no se incluyó el .env a .gitignore. De todos modos, a continuación se proporciona la API_KEY: **AIzaSyDdTDy7k62eagmqDMVLdw0XS4jR1GEDx3k**
